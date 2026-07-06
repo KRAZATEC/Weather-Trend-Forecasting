@@ -52,6 +52,24 @@ def get_model_registry() -> dict:
     return registry
 
 
+def _maybe_subsample(X_train: pd.DataFrame, y_train: pd.Series, max_rows: int):
+    """Return a deterministic subsample when the training set is very large.
+
+    This keeps the pipeline responsive on the full Kaggle-sized dataset while
+    preserving full-data training for smaller runs.
+    """
+    if len(X_train) <= max_rows:
+        return X_train, y_train
+
+    sample_idx = X_train.sample(n=max_rows, random_state=config.RANDOM_STATE).index
+    logger.info(
+        "Using %d/%d rows for this model to keep training time manageable.",
+        len(sample_idx),
+        len(X_train),
+    )
+    return X_train.loc[sample_idx], y_train.loc[sample_idx]
+
+
 def get_feature_matrix(df: pd.DataFrame, target_col: str = config.TARGET_COL):
     """Build the X, y matrices used for supervised training.
 
@@ -91,7 +109,14 @@ def train_all_models(X_train, y_train) -> dict:
     fitted = {}
     for name, model in get_model_registry().items():
         logger.info("Training %s ...", name)
-        model.fit(X_train, y_train)
+        if name == "SVR":
+            fit_X, fit_y = _maybe_subsample(X_train, y_train, config.SVR_ROW_CAP)
+        elif name in {"GradientBoosting", "XGBoost", "LightGBM"}:
+            fit_X, fit_y = _maybe_subsample(X_train, y_train, config.BOOSTING_ROW_CAP)
+        else:
+            fit_X, fit_y = _maybe_subsample(X_train, y_train, config.TRAINING_ROW_CAP)
+
+        model.fit(fit_X, fit_y)
         fitted[name] = model
         model_path = config.MODELS_DIR / f"{name}.pkl"
         joblib.dump(model, model_path)

@@ -72,11 +72,27 @@ CATEGORICAL_COLS = [
 TEST_SIZE: float = 0.2
 CV_FOLDS: int = 5
 
+# Training controls
+# Keep the default pipeline responsive on larger weather tables by capping
+# the number of rows used by the most expensive estimators when necessary.
+TRAINING_ROW_CAP: int = int(os.environ.get("WEATHER_TRAINING_ROW_CAP", "50000"))
+BOOSTING_ROW_CAP: int = int(os.environ.get("WEATHER_BOOSTING_ROW_CAP", "25000"))
+SVR_ROW_CAP: int = int(os.environ.get("WEATHER_SVR_ROW_CAP", "10000"))
+
 MODEL_PARAMS = {
-    "RandomForest": {"n_estimators": 300, "max_depth": 12, "random_state": RANDOM_STATE, "n_jobs": -1},
-    "GradientBoosting": {"n_estimators": 300, "max_depth": 4, "learning_rate": 0.05, "random_state": RANDOM_STATE},
-    "XGBoost": {"n_estimators": 400, "max_depth": 6, "learning_rate": 0.05, "random_state": RANDOM_STATE, "n_jobs": -1},
-    "LightGBM": {"n_estimators": 400, "max_depth": -1, "learning_rate": 0.05, "random_state": RANDOM_STATE, "n_jobs": -1, "verbosity": -1},
+    "RandomForest": {"n_estimators": 200, "max_depth": 12, "random_state": RANDOM_STATE, "n_jobs": -1},
+    "GradientBoosting": {
+        "n_estimators": 150,
+        "max_depth": 3,
+        "learning_rate": 0.07,
+        "subsample": 0.8,
+        "random_state": RANDOM_STATE,
+        "n_iter_no_change": 10,
+        "validation_fraction": 0.1,
+        "tol": 1e-4,
+    },
+    "XGBoost": {"n_estimators": 250, "max_depth": 6, "learning_rate": 0.05, "random_state": RANDOM_STATE, "n_jobs": -1},
+    "LightGBM": {"n_estimators": 250, "max_depth": -1, "learning_rate": 0.05, "random_state": RANDOM_STATE, "n_jobs": -1, "verbosity": -1},
     "LinearRegression": {},
     "DecisionTree": {"max_depth": 10, "random_state": RANDOM_STATE},
     "SVR": {"kernel": "rbf", "C": 10, "gamma": "scale"},
