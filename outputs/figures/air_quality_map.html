@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f1c357ac87a5425106de47ceb671a71a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <h3 style="text-align:center;font-family:sans-serif">Global Air Quality Map (PM2.5)</h3>
+    
+            <div class="folium-map" id="map_f1c357ac87a5425106de47ceb671a71a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f1c357ac87a5425106de47ceb671a71a = L.map(
+                "map_f1c357ac87a5425106de47ceb671a71a",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3d1e31c054c9ee35dda67d9dd4d1208f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3d1e31c054c9ee35dda67d9dd4d1208f.addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+            var circle_marker_e66963955dfb9088d90607f124ed288c = L.circleMarker(
+                [59.91, 10.75],
+                {"bubblingMouseEvents": true, "color": "#f4640a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4640a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_7cd06e9c12bf72fc3b2d584013a714a4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b98d9e8988a91dd746ea4476a1de2ee1 = $(`<div id="html_b98d9e8988a91dd746ea4476a1de2ee1" style="width: 100.0%; height: 100.0%;"><b>Oslo, Norway</b><br>Air Quality Pm2.5: 44.3</div>`)[0];
+                popup_7cd06e9c12bf72fc3b2d584013a714a4.setContent(html_b98d9e8988a91dd746ea4476a1de2ee1);
+            
+        
+
+        circle_marker_e66963955dfb9088d90607f124ed288c.bindPopup(popup_7cd06e9c12bf72fc3b2d584013a714a4)
+        ;
+
+        
+    
+    
+            var circle_marker_3cb45fd54f346a71791a4b9167864ebb = L.circleMarker(
+                [50.45, 30.52],
+                {"bubblingMouseEvents": true, "color": "#4d64b1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4d64b1", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_a32123b23ab563f7668ef6bc209113d8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ba3ef6e8b116f6fbbac1a82186109741 = $(`<div id="html_ba3ef6e8b116f6fbbac1a82186109741" style="width: 100.0%; height: 100.0%;"><b>Kyiv, Ukraine</b><br>Air Quality Pm2.5: 14.1</div>`)[0];
+                popup_a32123b23ab563f7668ef6bc209113d8.setContent(html_ba3ef6e8b116f6fbbac1a82186109741);
+            
+        
+
+        circle_marker_3cb45fd54f346a71791a4b9167864ebb.bindPopup(popup_a32123b23ab563f7668ef6bc209113d8)
+        ;
+
+        
+    
+    
+            var circle_marker_15759e7c4a1b5480cf86ecda2d231aba = L.circleMarker(
+                [40.42, -3.7],
+                {"bubblingMouseEvents": true, "color": "#cb6433", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cb6433", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_b7ed792527693ce5d1221bfe7705dd4c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_71e1e7157b23838c84884cf8b9ffadff = $(`<div id="html_71e1e7157b23838c84884cf8b9ffadff" style="width: 100.0%; height: 100.0%;"><b>Madrid, Spain</b><br>Air Quality Pm2.5: 36.8</div>`)[0];
+                popup_b7ed792527693ce5d1221bfe7705dd4c.setContent(html_71e1e7157b23838c84884cf8b9ffadff);
+            
+        
+
+        circle_marker_15759e7c4a1b5480cf86ecda2d231aba.bindPopup(popup_b7ed792527693ce5d1221bfe7705dd4c)
+        ;
+
+        
+    
+    
+            var circle_marker_f30e31dd47b4a2c035edd6ce532042b2 = L.circleMarker(
+                [-33.45, -70.67],
+                {"bubblingMouseEvents": true, "color": "#2c64d2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c64d2", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_ea23a10a0938fc106b63ce17354dbae9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b880bfd06706c22e211759e7232305b8 = $(`<div id="html_b880bfd06706c22e211759e7232305b8" style="width: 100.0%; height: 100.0%;"><b>Santiago, Chile</b><br>Air Quality Pm2.5: 8.0</div>`)[0];
+                popup_ea23a10a0938fc106b63ce17354dbae9.setContent(html_b880bfd06706c22e211759e7232305b8);
+            
+        
+
+        circle_marker_f30e31dd47b4a2c035edd6ce532042b2.bindPopup(popup_ea23a10a0938fc106b63ce17354dbae9)
+        ;
+
+        
+    
+    
+            var circle_marker_9959562015ec2603020563a4f8749e4d = L.circleMarker(
+                [-34.6, -58.38],
+                {"bubblingMouseEvents": true, "color": "#2a64d4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a64d4", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_7352de0edf828f6843f369d48f6b7ec8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e679a73423d6a8d3fccc9a70388aded3 = $(`<div id="html_e679a73423d6a8d3fccc9a70388aded3" style="width: 100.0%; height: 100.0%;"><b>Buenos Aires, Argentina</b><br>Air Quality Pm2.5: 7.7</div>`)[0];
+                popup_7352de0edf828f6843f369d48f6b7ec8.setContent(html_e679a73423d6a8d3fccc9a70388aded3);
+            
+        
+
+        circle_marker_9959562015ec2603020563a4f8749e4d.bindPopup(popup_7352de0edf828f6843f369d48f6b7ec8)
+        ;
+
+        
+    
+    
+            var circle_marker_1fae0b380794b3636c33bfe74b214a04 = L.circleMarker(
+                [19.43, -99.13],
+                {"bubblingMouseEvents": true, "color": "#bb6443", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb6443", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_e6f5db3649b9857fc05245bdb9c7bebb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0ea8ce5e5a2393253c3dfe4edc58abd6 = $(`<div id="html_0ea8ce5e5a2393253c3dfe4edc58abd6" style="width: 100.0%; height: 100.0%;"><b>Mexico City, Mexico</b><br>Air Quality Pm2.5: 33.9</div>`)[0];
+                popup_e6f5db3649b9857fc05245bdb9c7bebb.setContent(html_0ea8ce5e5a2393253c3dfe4edc58abd6);
+            
+        
+
+        circle_marker_1fae0b380794b3636c33bfe74b214a04.bindPopup(popup_e6f5db3649b9857fc05245bdb9c7bebb)
+        ;
+
+        
+    
+    
+            var circle_marker_71f4a56fa263f496728d8d585a068792 = L.circleMarker(
+                [-1.29, 36.82],
+                {"bubblingMouseEvents": true, "color": "#ca6434", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ca6434", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_00b6d36c0604960d651d59c717d0af42 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bd633478aaa791172afd6bf98b39b488 = $(`<div id="html_bd633478aaa791172afd6bf98b39b488" style="width: 100.0%; height: 100.0%;"><b>Nairobi, Kenya</b><br>Air Quality Pm2.5: 36.7</div>`)[0];
+                popup_00b6d36c0604960d651d59c717d0af42.setContent(html_bd633478aaa791172afd6bf98b39b488);
+            
+        
+
+        circle_marker_71f4a56fa263f496728d8d585a068792.bindPopup(popup_00b6d36c0604960d651d59c717d0af42)
+        ;
+
+        
+    
+    
+            var circle_marker_0fb0bcd8c6889cee32a1f20298c878b6 = L.circleMarker(
+                [6.52, 3.38],
+                {"bubblingMouseEvents": true, "color": "#0064ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0064ff", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_d9952c38fc0fb0b00d9819f10fc60b8e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7236ef2e17aaa762aaab3abd035366d5 = $(`<div id="html_7236ef2e17aaa762aaab3abd035366d5" style="width: 100.0%; height: 100.0%;"><b>Lagos, Nigeria</b><br>Air Quality Pm2.5: 0.0</div>`)[0];
+                popup_d9952c38fc0fb0b00d9819f10fc60b8e.setContent(html_7236ef2e17aaa762aaab3abd035366d5);
+            
+        
+
+        circle_marker_0fb0bcd8c6889cee32a1f20298c878b6.bindPopup(popup_d9952c38fc0fb0b00d9819f10fc60b8e)
+        ;
+
+        
+    
+    
+            var circle_marker_2ec1653267a435aa9a8947a1b693f478 = L.circleMarker(
+                [30.04, 31.24],
+                {"bubblingMouseEvents": true, "color": "#2664d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2664d8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_a525b683063d748469dfc76428f7bbe6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_13e44f0f3336cb4656e5befccb20ade0 = $(`<div id="html_13e44f0f3336cb4656e5befccb20ade0" style="width: 100.0%; height: 100.0%;"><b>Cairo, Egypt</b><br>Air Quality Pm2.5: 7.0</div>`)[0];
+                popup_a525b683063d748469dfc76428f7bbe6.setContent(html_13e44f0f3336cb4656e5befccb20ade0);
+            
+        
+
+        circle_marker_2ec1653267a435aa9a8947a1b693f478.bindPopup(popup_a525b683063d748469dfc76428f7bbe6)
+        ;
+
+        
+    
+    
+            var circle_marker_9dfbdc2f5a48f67c240bd2b8b861c9e2 = L.circleMarker(
+                [-26.2, 28.05],
+                {"bubblingMouseEvents": true, "color": "#0064ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0064ff", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_98872e02ab7e6e7f4719aa0fdaf5ea1f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8751253930675b91ffabe9a5ffdf1b8e = $(`<div id="html_8751253930675b91ffabe9a5ffdf1b8e" style="width: 100.0%; height: 100.0%;"><b>Johannesburg, South Africa</b><br>Air Quality Pm2.5: 0.0</div>`)[0];
+                popup_98872e02ab7e6e7f4719aa0fdaf5ea1f.setContent(html_8751253930675b91ffabe9a5ffdf1b8e);
+            
+        
+
+        circle_marker_9dfbdc2f5a48f67c240bd2b8b861c9e2.bindPopup(popup_98872e02ab7e6e7f4719aa0fdaf5ea1f)
+        ;
+
+        
+    
+    
+            var circle_marker_d560fd296449691bc588cb1b97859a3b = L.circleMarker(
+                [-33.92, 18.42],
+                {"bubblingMouseEvents": true, "color": "#5b64a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b64a3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_a72a0a9787d5ad4dee7c5eac1affd200 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7ac8a9fc09ad1177bf1f652898e9b4a7 = $(`<div id="html_7ac8a9fc09ad1177bf1f652898e9b4a7" style="width: 100.0%; height: 100.0%;"><b>Cape Town, South Africa</b><br>Air Quality Pm2.5: 16.6</div>`)[0];
+                popup_a72a0a9787d5ad4dee7c5eac1affd200.setContent(html_7ac8a9fc09ad1177bf1f652898e9b4a7);
+            
+        
+
+        circle_marker_d560fd296449691bc588cb1b97859a3b.bindPopup(popup_a72a0a9787d5ad4dee7c5eac1affd200)
+        ;
+
+        
+    
+    
+            var circle_marker_d19f13783c3ee03f3f0926e21afe82e7 = L.circleMarker(
+                [55.76, 37.62],
+                {"bubblingMouseEvents": true, "color": "#bb6443", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb6443", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_bbf9f03cc2fca7153512766b817212ae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1214408bd73be627ab8a653e7673f84d = $(`<div id="html_1214408bd73be627ab8a653e7673f84d" style="width: 100.0%; height: 100.0%;"><b>Moscow, Russia</b><br>Air Quality Pm2.5: 33.8</div>`)[0];
+                popup_bbf9f03cc2fca7153512766b817212ae.setContent(html_1214408bd73be627ab8a653e7673f84d);
+            
+        
+
+        circle_marker_d19f13783c3ee03f3f0926e21afe82e7.bindPopup(popup_bbf9f03cc2fca7153512766b817212ae)
+        ;
+
+        
+    
+    
+            var circle_marker_97fb4fa4ee59a2b75da8ca87521e0b91 = L.circleMarker(
+                [49.28, -123.12],
+                {"bubblingMouseEvents": true, "color": "#a2645c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a2645c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_ea7b224d13105158c24e1ed9f909d74d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cafba9b99c630cb28ec2bc9695858f64 = $(`<div id="html_cafba9b99c630cb28ec2bc9695858f64" style="width: 100.0%; height: 100.0%;"><b>Vancouver, Canada</b><br>Air Quality Pm2.5: 29.4</div>`)[0];
+                popup_ea7b224d13105158c24e1ed9f909d74d.setContent(html_cafba9b99c630cb28ec2bc9695858f64);
+            
+        
+
+        circle_marker_97fb4fa4ee59a2b75da8ca87521e0b91.bindPopup(popup_ea7b224d13105158c24e1ed9f909d74d)
+        ;
+
+        
+    
+    
+            var circle_marker_5fe199588b618b59c534099ea623ff75 = L.circleMarker(
+                [43.65, -79.38],
+                {"bubblingMouseEvents": true, "color": "#bd6441", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bd6441", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_ff5a5f16e9e2af04ebe910a17b778c02 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b2937d018305de1ff24a6d1131a02b5d = $(`<div id="html_b2937d018305de1ff24a6d1131a02b5d" style="width: 100.0%; height: 100.0%;"><b>Toronto, Canada</b><br>Air Quality Pm2.5: 34.2</div>`)[0];
+                popup_ff5a5f16e9e2af04ebe910a17b778c02.setContent(html_b2937d018305de1ff24a6d1131a02b5d);
+            
+        
+
+        circle_marker_5fe199588b618b59c534099ea623ff75.bindPopup(popup_ff5a5f16e9e2af04ebe910a17b778c02)
+        ;
+
+        
+    
+    
+            var circle_marker_0c653316fc278cb59283367812b9eac3 = L.circleMarker(
+                [41.9, 12.5],
+                {"bubblingMouseEvents": true, "color": "#4664b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4664b8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_dba3a6eaab8cf08ee746ef845fa821bf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b9824aa1579a4ebae5be3901aed1458b = $(`<div id="html_b9824aa1579a4ebae5be3901aed1458b" style="width: 100.0%; height: 100.0%;"><b>Rome, Italy</b><br>Air Quality Pm2.5: 12.8</div>`)[0];
+                popup_dba3a6eaab8cf08ee746ef845fa821bf.setContent(html_b9824aa1579a4ebae5be3901aed1458b);
+            
+        
+
+        circle_marker_0c653316fc278cb59283367812b9eac3.bindPopup(popup_dba3a6eaab8cf08ee746ef845fa821bf)
+        ;
+
+        
+    
+    
+            var circle_marker_0be166c68364541c0a75b4c30bc48ef5 = L.circleMarker(
+                [-37.81, 144.96],
+                {"bubblingMouseEvents": true, "color": "#0064ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0064ff", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_04599e696a83a9600abd5203cb5e7640 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b611524cd0bdf336b089f304efadb461 = $(`<div id="html_b611524cd0bdf336b089f304efadb461" style="width: 100.0%; height: 100.0%;"><b>Melbourne, Australia</b><br>Air Quality Pm2.5: 0.0</div>`)[0];
+                popup_04599e696a83a9600abd5203cb5e7640.setContent(html_b611524cd0bdf336b089f304efadb461);
+            
+        
+
+        circle_marker_0be166c68364541c0a75b4c30bc48ef5.bindPopup(popup_04599e696a83a9600abd5203cb5e7640)
+        ;
+
+        
+    
+    
+            var circle_marker_2802ac2c6b4cefa296793b8865f4b7c1 = L.circleMarker(
+                [-23.55, -46.63],
+                {"bubblingMouseEvents": true, "color": "#8c6472", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c6472", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_cd3e9711231fa3b42a4f3a0d375b392f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0552e9fe9a4eae0a1ce12418b1f93c0f = $(`<div id="html_0552e9fe9a4eae0a1ce12418b1f93c0f" style="width: 100.0%; height: 100.0%;"><b>Sao Paulo, Brazil</b><br>Air Quality Pm2.5: 25.4</div>`)[0];
+                popup_cd3e9711231fa3b42a4f3a0d375b392f.setContent(html_0552e9fe9a4eae0a1ce12418b1f93c0f);
+            
+        
+
+        circle_marker_2802ac2c6b4cefa296793b8865f4b7c1.bindPopup(popup_cd3e9711231fa3b42a4f3a0d375b392f)
+        ;
+
+        
+    
+    
+            var circle_marker_e6b68e88b96d7fd18ee5de650644aca6 = L.circleMarker(
+                [-22.91, -43.17],
+                {"bubblingMouseEvents": true, "color": "#2c64d2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c64d2", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_7d6fbe115b8b3687179ff089bedf8d27 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3f8bf83c615c5d35189977fcc246f2d0 = $(`<div id="html_3f8bf83c615c5d35189977fcc246f2d0" style="width: 100.0%; height: 100.0%;"><b>Rio de Janeiro, Brazil</b><br>Air Quality Pm2.5: 8.1</div>`)[0];
+                popup_7d6fbe115b8b3687179ff089bedf8d27.setContent(html_3f8bf83c615c5d35189977fcc246f2d0);
+            
+        
+
+        circle_marker_e6b68e88b96d7fd18ee5de650644aca6.bindPopup(popup_7d6fbe115b8b3687179ff089bedf8d27)
+        ;
+
+        
+    
+    
+            var circle_marker_0278de955ec110563ba064342c2a4de0 = L.circleMarker(
+                [35.68, 139.65],
+                {"bubblingMouseEvents": true, "color": "#0664f8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0664f8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_7995cea95ec847a053b12ba4beab7ec5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ab40db57f07b4bd483726a117b300cba = $(`<div id="html_ab40db57f07b4bd483726a117b300cba" style="width: 100.0%; height: 100.0%;"><b>Tokyo, Japan</b><br>Air Quality Pm2.5: 1.2</div>`)[0];
+                popup_7995cea95ec847a053b12ba4beab7ec5.setContent(html_ab40db57f07b4bd483726a117b300cba);
+            
+        
+
+        circle_marker_0278de955ec110563ba064342c2a4de0.bindPopup(popup_7995cea95ec847a053b12ba4beab7ec5)
+        ;
+
+        
+    
+    
+            var circle_marker_71b75f91866cc1a1d1409f812c763cf9 = L.circleMarker(
+                [31.23, 121.47],
+                {"bubblingMouseEvents": true, "color": "#fc6402", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc6402", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_45b4e7e79e470d77516c6e593e9f77a4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3c09eefce358f366f1c80943c9d5885d = $(`<div id="html_3c09eefce358f366f1c80943c9d5885d" style="width: 100.0%; height: 100.0%;"><b>Shanghai, China</b><br>Air Quality Pm2.5: 45.7</div>`)[0];
+                popup_45b4e7e79e470d77516c6e593e9f77a4.setContent(html_3c09eefce358f366f1c80943c9d5885d);
+            
+        
+
+        circle_marker_71b75f91866cc1a1d1409f812c763cf9.bindPopup(popup_45b4e7e79e470d77516c6e593e9f77a4)
+        ;
+
+        
+    
+    
+            var circle_marker_9e38fc9d724843045ff468ae1ae6fcd8 = L.circleMarker(
+                [39.9, 116.4],
+                {"bubblingMouseEvents": true, "color": "#2564d9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2564d9", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_6684fe05d7f3f127079357beb1bd2a03 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ae66142ce8187d34337203b8a30ad098 = $(`<div id="html_ae66142ce8187d34337203b8a30ad098" style="width: 100.0%; height: 100.0%;"><b>Beijing, China</b><br>Air Quality Pm2.5: 6.8</div>`)[0];
+                popup_6684fe05d7f3f127079357beb1bd2a03.setContent(html_ae66142ce8187d34337203b8a30ad098);
+            
+        
+
+        circle_marker_9e38fc9d724843045ff468ae1ae6fcd8.bindPopup(popup_6684fe05d7f3f127079357beb1bd2a03)
+        ;
+
+        
+    
+    
+            var circle_marker_85d3cc58881fbf2d5384e6ba5b0ef11c = L.circleMarker(
+                [19.08, 72.88],
+                {"bubblingMouseEvents": true, "color": "#cb6433", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cb6433", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_684253b0486a112f752491b92cce756b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e59cfaa3f837f5d49d269462c15984ca = $(`<div id="html_e59cfaa3f837f5d49d269462c15984ca" style="width: 100.0%; height: 100.0%;"><b>Mumbai, India</b><br>Air Quality Pm2.5: 36.8</div>`)[0];
+                popup_684253b0486a112f752491b92cce756b.setContent(html_e59cfaa3f837f5d49d269462c15984ca);
+            
+        
+
+        circle_marker_85d3cc58881fbf2d5384e6ba5b0ef11c.bindPopup(popup_684253b0486a112f752491b92cce756b)
+        ;
+
+        
+    
+    
+            var circle_marker_fe363a9649c6f27c2d0a58721cd2cbcb = L.circleMarker(
+                [28.61, 77.21],
+                {"bubblingMouseEvents": true, "color": "#8c6472", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c6472", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_064d5665238c4646ec2c7f9bb15120f5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2ab28247fa2f61b47dea5c241ca7dd02 = $(`<div id="html_2ab28247fa2f61b47dea5c241ca7dd02" style="width: 100.0%; height: 100.0%;"><b>New Delhi, India</b><br>Air Quality Pm2.5: 25.4</div>`)[0];
+                popup_064d5665238c4646ec2c7f9bb15120f5.setContent(html_2ab28247fa2f61b47dea5c241ca7dd02);
+            
+        
+
+        circle_marker_fe363a9649c6f27c2d0a58721cd2cbcb.bindPopup(popup_064d5665238c4646ec2c7f9bb15120f5)
+        ;
+
+        
+    
+    
+            var circle_marker_96d213adff9f871c0c314719703b3138 = L.circleMarker(
+                [52.52, 13.4],
+                {"bubblingMouseEvents": true, "color": "#0364fb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0364fb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_d2c1a6d78d93a59c1e970b23db8ad24c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0ecdf57e7bb731e6ea955947be3772f1 = $(`<div id="html_0ecdf57e7bb731e6ea955947be3772f1" style="width: 100.0%; height: 100.0%;"><b>Berlin, Germany</b><br>Air Quality Pm2.5: 0.6</div>`)[0];
+                popup_d2c1a6d78d93a59c1e970b23db8ad24c.setContent(html_0ecdf57e7bb731e6ea955947be3772f1);
+            
+        
+
+        circle_marker_96d213adff9f871c0c314719703b3138.bindPopup(popup_d2c1a6d78d93a59c1e970b23db8ad24c)
+        ;
+
+        
+    
+    
+            var circle_marker_bf1435dc044ed15e0ecb3a3e46ab3945 = L.circleMarker(
+                [48.85, 2.35],
+                {"bubblingMouseEvents": true, "color": "#7d6481", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7d6481", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_bc54a46b47d9316064d377fe1802c21b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_be327dd64b8c2008a19a77282f243efa = $(`<div id="html_be327dd64b8c2008a19a77282f243efa" style="width: 100.0%; height: 100.0%;"><b>Paris, France</b><br>Air Quality Pm2.5: 22.7</div>`)[0];
+                popup_bc54a46b47d9316064d377fe1802c21b.setContent(html_be327dd64b8c2008a19a77282f243efa);
+            
+        
+
+        circle_marker_bf1435dc044ed15e0ecb3a3e46ab3945.bindPopup(popup_bc54a46b47d9316064d377fe1802c21b)
+        ;
+
+        
+    
+    
+            var circle_marker_d1dbaf366bf1da25067532a752f804a2 = L.circleMarker(
+                [51.51, -0.13],
+                {"bubblingMouseEvents": true, "color": "#aa6454", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#aa6454", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_d20a5a24bac133e078d455bfcd309180 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_941c5f0e534203e4ffb38955b9aeca7b = $(`<div id="html_941c5f0e534203e4ffb38955b9aeca7b" style="width: 100.0%; height: 100.0%;"><b>London, United Kingdom</b><br>Air Quality Pm2.5: 30.9</div>`)[0];
+                popup_d20a5a24bac133e078d455bfcd309180.setContent(html_941c5f0e534203e4ffb38955b9aeca7b);
+            
+        
+
+        circle_marker_d1dbaf366bf1da25067532a752f804a2.bindPopup(popup_d20a5a24bac133e078d455bfcd309180)
+        ;
+
+        
+    
+    
+            var circle_marker_1f680ab079d292ebc29a495ae826e6d7 = L.circleMarker(
+                [34.05, -118.24],
+                {"bubblingMouseEvents": true, "color": "#92646c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#92646c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_9d6fccaee9eb1d21e4deb58a68ef3912 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6108d9161ccfb1da7ebbbd5ae38c5d65 = $(`<div id="html_6108d9161ccfb1da7ebbbd5ae38c5d65" style="width: 100.0%; height: 100.0%;"><b>Los Angeles, United States</b><br>Air Quality Pm2.5: 26.5</div>`)[0];
+                popup_9d6fccaee9eb1d21e4deb58a68ef3912.setContent(html_6108d9161ccfb1da7ebbbd5ae38c5d65);
+            
+        
+
+        circle_marker_1f680ab079d292ebc29a495ae826e6d7.bindPopup(popup_9d6fccaee9eb1d21e4deb58a68ef3912)
+        ;
+
+        
+    
+    
+            var circle_marker_cf3b11046b54a641b652813ab06f6422 = L.circleMarker(
+                [40.71, -74.01],
+                {"bubblingMouseEvents": true, "color": "#6b6493", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b6493", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_6fef5c374abdc02b6ae26b3ded7d7786 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fb8cc921efc626da75dc272420edea91 = $(`<div id="html_fb8cc921efc626da75dc272420edea91" style="width: 100.0%; height: 100.0%;"><b>New York, United States</b><br>Air Quality Pm2.5: 19.4</div>`)[0];
+                popup_6fef5c374abdc02b6ae26b3ded7d7786.setContent(html_fb8cc921efc626da75dc272420edea91);
+            
+        
+
+        circle_marker_cf3b11046b54a641b652813ab06f6422.bindPopup(popup_6fef5c374abdc02b6ae26b3ded7d7786)
+        ;
+
+        
+    
+    
+            var circle_marker_ed95dc6abf8843031a639f96cf3f81b3 = L.circleMarker(
+                [-33.87, 151.21],
+                {"bubblingMouseEvents": true, "color": "#64649a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64649a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_54a5167aa3333986832f7ad6ae255c79 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2b9f4bbbbb9ce207ed5164134e04b67f = $(`<div id="html_2b9f4bbbbb9ce207ed5164134e04b67f" style="width: 100.0%; height: 100.0%;"><b>Sydney, Australia</b><br>Air Quality Pm2.5: 18.3</div>`)[0];
+                popup_54a5167aa3333986832f7ad6ae255c79.setContent(html_2b9f4bbbbb9ce207ed5164134e04b67f);
+            
+        
+
+        circle_marker_ed95dc6abf8843031a639f96cf3f81b3.bindPopup(popup_54a5167aa3333986832f7ad6ae255c79)
+        ;
+
+        
+    
+    
+            var circle_marker_5eb38cd55d7796c415e98247db2608b9 = L.circleMarker(
+                [43.24, 76.95],
+                {"bubblingMouseEvents": true, "color": "#db6423", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#db6423", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_7c44ce94ae18ee4ccaea320b4e7b5efd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7570d1c155642c557d62accfb05d6d66 = $(`<div id="html_7570d1c155642c557d62accfb05d6d66" style="width: 100.0%; height: 100.0%;"><b>Almaty, Kazakhstan</b><br>Air Quality Pm2.5: 39.8</div>`)[0];
+                popup_7c44ce94ae18ee4ccaea320b4e7b5efd.setContent(html_7570d1c155642c557d62accfb05d6d66);
+            
+        
+
+        circle_marker_5eb38cd55d7796c415e98247db2608b9.bindPopup(popup_7c44ce94ae18ee4ccaea320b4e7b5efd)
+        ;
+
+        
+    
+    
+            var circle_marker_d00728466301cc7186cdccc501e4bc7b = L.circleMarker(
+                [52.37, 4.9],
+                {"bubblingMouseEvents": true, "color": "#4264bc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4264bc", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_9ac035584345164d86e7a54a944ca425 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6ba61f964a5f1ddafa07517ba74f64ff = $(`<div id="html_6ba61f964a5f1ddafa07517ba74f64ff" style="width: 100.0%; height: 100.0%;"><b>Amsterdam, Netherlands</b><br>Air Quality Pm2.5: 12.0</div>`)[0];
+                popup_9ac035584345164d86e7a54a944ca425.setContent(html_6ba61f964a5f1ddafa07517ba74f64ff);
+            
+        
+
+        circle_marker_d00728466301cc7186cdccc501e4bc7b.bindPopup(popup_9ac035584345164d86e7a54a944ca425)
+        ;
+
+        
+    
+    
+            var circle_marker_2fbcb354eae588eccc339eaa46fc6ab2 = L.circleMarker(
+                [60.17, 24.94],
+                {"bubblingMouseEvents": true, "color": "#0064ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0064ff", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_cf13d76b959caadbf7f3dbb952fab869 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_696545127686fcc6f43e57b5fd3645b7 = $(`<div id="html_696545127686fcc6f43e57b5fd3645b7" style="width: 100.0%; height: 100.0%;"><b>Helsinki, Finland</b><br>Air Quality Pm2.5: 0.0</div>`)[0];
+                popup_cf13d76b959caadbf7f3dbb952fab869.setContent(html_696545127686fcc6f43e57b5fd3645b7);
+            
+        
+
+        circle_marker_2fbcb354eae588eccc339eaa46fc6ab2.bindPopup(popup_cf13d76b959caadbf7f3dbb952fab869)
+        ;
+
+        
+    
+    
+            var circle_marker_f929337e03921786a5ffc5148f7a92de = L.circleMarker(
+                [1.35, 103.82],
+                {"bubblingMouseEvents": true, "color": "#92646c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#92646c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_6f2256de08f7d7d069ef7bddf339f153 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c5efb973ca26f56e0aad129e70d9fc38 = $(`<div id="html_c5efb973ca26f56e0aad129e70d9fc38" style="width: 100.0%; height: 100.0%;"><b>Singapore, Singapore</b><br>Air Quality Pm2.5: 26.5</div>`)[0];
+                popup_6f2256de08f7d7d069ef7bddf339f153.setContent(html_c5efb973ca26f56e0aad129e70d9fc38);
+            
+        
+
+        circle_marker_f929337e03921786a5ffc5148f7a92de.bindPopup(popup_6f2256de08f7d7d069ef7bddf339f153)
+        ;
+
+        
+    
+    
+            var circle_marker_a5d2f3021144742c15589f3d79a7517f = L.circleMarker(
+                [3.14, 101.69],
+                {"bubblingMouseEvents": true, "color": "#2864d6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2864d6", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_04663d3191f5233407d5c4ff36496290 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7f33f627852521d7347fd9b9098c6eac = $(`<div id="html_7f33f627852521d7347fd9b9098c6eac" style="width: 100.0%; height: 100.0%;"><b>Kuala Lumpur, Malaysia</b><br>Air Quality Pm2.5: 7.4</div>`)[0];
+                popup_04663d3191f5233407d5c4ff36496290.setContent(html_7f33f627852521d7347fd9b9098c6eac);
+            
+        
+
+        circle_marker_a5d2f3021144742c15589f3d79a7517f.bindPopup(popup_04663d3191f5233407d5c4ff36496290)
+        ;
+
+        
+    
+    
+            var circle_marker_a374ddc45c882421b5b3197c58f5dee2 = L.circleMarker(
+                [32.08, 34.78],
+                {"bubblingMouseEvents": true, "color": "#4364bb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4364bb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_46dffd283ed058ac6114da70bb7166e6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3ce663d420e531b5b37a9abcd8bcd7cf = $(`<div id="html_3ce663d420e531b5b37a9abcd8bcd7cf" style="width: 100.0%; height: 100.0%;"><b>Tel Aviv, Israel</b><br>Air Quality Pm2.5: 12.1</div>`)[0];
+                popup_46dffd283ed058ac6114da70bb7166e6.setContent(html_3ce663d420e531b5b37a9abcd8bcd7cf);
+            
+        
+
+        circle_marker_a374ddc45c882421b5b3197c58f5dee2.bindPopup(popup_46dffd283ed058ac6114da70bb7166e6)
+        ;
+
+        
+    
+    
+            var circle_marker_75e7733fa36ee3851a05f85dedd66b83 = L.circleMarker(
+                [4.71, -74.07],
+                {"bubblingMouseEvents": true, "color": "#666498", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#666498", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_c6fefe223e710e66356ddf9b9e0185d2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8fa6e497b2861e8492c4a09788d3cd97 = $(`<div id="html_8fa6e497b2861e8492c4a09788d3cd97" style="width: 100.0%; height: 100.0%;"><b>Bogota, Colombia</b><br>Air Quality Pm2.5: 18.5</div>`)[0];
+                popup_c6fefe223e710e66356ddf9b9e0185d2.setContent(html_8fa6e497b2861e8492c4a09788d3cd97);
+            
+        
+
+        circle_marker_75e7733fa36ee3851a05f85dedd66b83.bindPopup(popup_c6fefe223e710e66356ddf9b9e0185d2)
+        ;
+
+        
+    
+    
+            var circle_marker_9c6a61e0bc5f0e70316b0fe7f73aa2b7 = L.circleMarker(
+                [-12.05, -77.04],
+                {"bubblingMouseEvents": true, "color": "#7b6483", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7b6483", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_e92e8e0900942e8747a75d9b18f0b628 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fb049cf3e91f702f406c0e565762e3ca = $(`<div id="html_fb049cf3e91f702f406c0e565762e3ca" style="width: 100.0%; height: 100.0%;"><b>Lima, Peru</b><br>Air Quality Pm2.5: 22.3</div>`)[0];
+                popup_e92e8e0900942e8747a75d9b18f0b628.setContent(html_fb049cf3e91f702f406c0e565762e3ca);
+            
+        
+
+        circle_marker_9c6a61e0bc5f0e70316b0fe7f73aa2b7.bindPopup(popup_e92e8e0900942e8747a75d9b18f0b628)
+        ;
+
+        
+    
+    
+            var circle_marker_6642466624fd4b14f70180fe76ad85e3 = L.circleMarker(
+                [33.57, -7.59],
+                {"bubblingMouseEvents": true, "color": "#4b64b3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b64b3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_1f9a9db2c99516e141050c18ebbea420 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1667fdb15218e432b99cf468cbe73f51 = $(`<div id="html_1667fdb15218e432b99cf468cbe73f51" style="width: 100.0%; height: 100.0%;"><b>Casablanca, Morocco</b><br>Air Quality Pm2.5: 13.7</div>`)[0];
+                popup_1f9a9db2c99516e141050c18ebbea420.setContent(html_1667fdb15218e432b99cf468cbe73f51);
+            
+        
+
+        circle_marker_6642466624fd4b14f70180fe76ad85e3.bindPopup(popup_1f9a9db2c99516e141050c18ebbea420)
+        ;
+
+        
+    
+    
+            var circle_marker_29708e5798dbe0531e4b3581f280befe = L.circleMarker(
+                [64.15, -21.94],
+                {"bubblingMouseEvents": true, "color": "#6b6493", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b6493", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_c4599220e0690d8de59efee728e70e2d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4b82f1b30c29b72566184b4567b22fed = $(`<div id="html_4b82f1b30c29b72566184b4567b22fed" style="width: 100.0%; height: 100.0%;"><b>Reykjavik, Iceland</b><br>Air Quality Pm2.5: 19.4</div>`)[0];
+                popup_c4599220e0690d8de59efee728e70e2d.setContent(html_4b82f1b30c29b72566184b4567b22fed);
+            
+        
+
+        circle_marker_29708e5798dbe0531e4b3581f280befe.bindPopup(popup_c4599220e0690d8de59efee728e70e2d)
+        ;
+
+        
+    
+    
+            var circle_marker_9a7e0869bb18072a7c56beb0dfd8ebf2 = L.circleMarker(
+                [55.68, 12.57],
+                {"bubblingMouseEvents": true, "color": "#60649e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#60649e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_282b053c2b6c5c09956a2fb7c3f34985 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fe0f51a8de6ff5db65baf822601a0c74 = $(`<div id="html_fe0f51a8de6ff5db65baf822601a0c74" style="width: 100.0%; height: 100.0%;"><b>Copenhagen, Denmark</b><br>Air Quality Pm2.5: 17.5</div>`)[0];
+                popup_282b053c2b6c5c09956a2fb7c3f34985.setContent(html_fe0f51a8de6ff5db65baf822601a0c74);
+            
+        
+
+        circle_marker_9a7e0869bb18072a7c56beb0dfd8ebf2.bindPopup(popup_282b053c2b6c5c09956a2fb7c3f34985)
+        ;
+
+        
+    
+    
+            var circle_marker_3f965f32cd74babc8816495f52e592c7 = L.circleMarker(
+                [50.85, 4.35],
+                {"bubblingMouseEvents": true, "color": "#976467", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#976467", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_8eba215ab96fc2cfbce25a00e4a61b5e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b2dc30c6223b7d5039c39673c526ffa1 = $(`<div id="html_b2dc30c6223b7d5039c39673c526ffa1" style="width: 100.0%; height: 100.0%;"><b>Brussels, Belgium</b><br>Air Quality Pm2.5: 27.3</div>`)[0];
+                popup_8eba215ab96fc2cfbce25a00e4a61b5e.setContent(html_b2dc30c6223b7d5039c39673c526ffa1);
+            
+        
+
+        circle_marker_3f965f32cd74babc8816495f52e592c7.bindPopup(popup_8eba215ab96fc2cfbce25a00e4a61b5e)
+        ;
+
+        
+    
+    
+            var circle_marker_a3b9f214b7c88d037482e40148efa6ea = L.circleMarker(
+                [48.21, 16.37],
+                {"bubblingMouseEvents": true, "color": "#9e6460", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9e6460", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_14b4cddc654a77e1bb77852f93a9e9f6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8f6086d998b0a4c7f940df7d0cc241a5 = $(`<div id="html_8f6086d998b0a4c7f940df7d0cc241a5" style="width: 100.0%; height: 100.0%;"><b>Vienna, Austria</b><br>Air Quality Pm2.5: 28.8</div>`)[0];
+                popup_14b4cddc654a77e1bb77852f93a9e9f6.setContent(html_8f6086d998b0a4c7f940df7d0cc241a5);
+            
+        
+
+        circle_marker_a3b9f214b7c88d037482e40148efa6ea.bindPopup(popup_14b4cddc654a77e1bb77852f93a9e9f6)
+        ;
+
+        
+    
+    
+            var circle_marker_63e1ef591df8fbbe1d06de099919ade8 = L.circleMarker(
+                [47.38, 8.54],
+                {"bubblingMouseEvents": true, "color": "#ba6444", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ba6444", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_84596b14c415d0d708632e55f9a67e25 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4e6f3cd3aa08c052457759e6d03735c2 = $(`<div id="html_4e6f3cd3aa08c052457759e6d03735c2" style="width: 100.0%; height: 100.0%;"><b>Zurich, Switzerland</b><br>Air Quality Pm2.5: 33.7</div>`)[0];
+                popup_84596b14c415d0d708632e55f9a67e25.setContent(html_4e6f3cd3aa08c052457759e6d03735c2);
+            
+        
+
+        circle_marker_63e1ef591df8fbbe1d06de099919ade8.bindPopup(popup_84596b14c415d0d708632e55f9a67e25)
+        ;
+
+        
+    
+    
+            var circle_marker_8620853cecf0ede5dd0341abca5dec94 = L.circleMarker(
+                [53.35, -6.26],
+                {"bubblingMouseEvents": true, "color": "#ae6450", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ae6450", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_8602e21eb8cdcdbe54608d63e817fe2e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b048b9fcbe60a7df95b2bb95db8fffd = $(`<div id="html_7b048b9fcbe60a7df95b2bb95db8fffd" style="width: 100.0%; height: 100.0%;"><b>Dublin, Ireland</b><br>Air Quality Pm2.5: 31.6</div>`)[0];
+                popup_8602e21eb8cdcdbe54608d63e817fe2e.setContent(html_7b048b9fcbe60a7df95b2bb95db8fffd);
+            
+        
+
+        circle_marker_8620853cecf0ede5dd0341abca5dec94.bindPopup(popup_8602e21eb8cdcdbe54608d63e817fe2e)
+        ;
+
+        
+    
+    
+            var circle_marker_6698d5b7425dbfe7163a2d4997b6a564 = L.circleMarker(
+                [59.33, 18.07],
+                {"bubblingMouseEvents": true, "color": "#82647c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#82647c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_a82bb7e050900829bb9585bc44f625a7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fa6e08b5ec84cdb08ce9cdde76437bf5 = $(`<div id="html_fa6e08b5ec84cdb08ce9cdde76437bf5" style="width: 100.0%; height: 100.0%;"><b>Stockholm, Sweden</b><br>Air Quality Pm2.5: 23.7</div>`)[0];
+                popup_a82bb7e050900829bb9585bc44f625a7.setContent(html_fa6e08b5ec84cdb08ce9cdde76437bf5);
+            
+        
+
+        circle_marker_6698d5b7425dbfe7163a2d4997b6a564.bindPopup(popup_a82bb7e050900829bb9585bc44f625a7)
+        ;
+
+        
+    
+    
+            var circle_marker_e1e2406672b3aece721c7300e814ef5b = L.circleMarker(
+                [37.98, 23.73],
+                {"bubblingMouseEvents": true, "color": "#b96445", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b96445", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_b267dc481f9402efce98dcac82547fc9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c8e7b5961b4faa1f33a9957a52425b75 = $(`<div id="html_c8e7b5961b4faa1f33a9957a52425b75" style="width: 100.0%; height: 100.0%;"><b>Athens, Greece</b><br>Air Quality Pm2.5: 33.6</div>`)[0];
+                popup_b267dc481f9402efce98dcac82547fc9.setContent(html_c8e7b5961b4faa1f33a9957a52425b75);
+            
+        
+
+        circle_marker_e1e2406672b3aece721c7300e814ef5b.bindPopup(popup_b267dc481f9402efce98dcac82547fc9)
+        ;
+
+        
+    
+    
+            var circle_marker_dcbb4782e4f43b45e9fca91d1335aa61 = L.circleMarker(
+                [-36.85, 174.76],
+                {"bubblingMouseEvents": true, "color": "#7d6481", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7d6481", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_e88953f6ebc5fe0059a5d45de60c0d9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ddc477b09bc2527bf9279862d4d958a9 = $(`<div id="html_ddc477b09bc2527bf9279862d4d958a9" style="width: 100.0%; height: 100.0%;"><b>Auckland, New Zealand</b><br>Air Quality Pm2.5: 22.7</div>`)[0];
+                popup_e88953f6ebc5fe0059a5d45de60c0d9a.setContent(html_ddc477b09bc2527bf9279862d4d958a9);
+            
+        
+
+        circle_marker_dcbb4782e4f43b45e9fca91d1335aa61.bindPopup(popup_e88953f6ebc5fe0059a5d45de60c0d9a)
+        ;
+
+        
+    
+    
+            var circle_marker_f53f29f4a600a3bbc4d5ddce2b1bb9ea = L.circleMarker(
+                [23.81, 90.41],
+                {"bubblingMouseEvents": true, "color": "#ff6400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_231dc4d18bcec4da69d2c3a4323f042d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c8dde60fd02d8db7e86b5bdf5154beac = $(`<div id="html_c8dde60fd02d8db7e86b5bdf5154beac" style="width: 100.0%; height: 100.0%;"><b>Dhaka, Bangladesh</b><br>Air Quality Pm2.5: 46.1</div>`)[0];
+                popup_231dc4d18bcec4da69d2c3a4323f042d.setContent(html_c8dde60fd02d8db7e86b5bdf5154beac);
+            
+        
+
+        circle_marker_f53f29f4a600a3bbc4d5ddce2b1bb9ea.bindPopup(popup_231dc4d18bcec4da69d2c3a4323f042d)
+        ;
+
+        
+    
+    
+            var circle_marker_f96f6940be7ee54d25cac8346394529c = L.circleMarker(
+                [24.86, 67.01],
+                {"bubblingMouseEvents": true, "color": "#866478", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#866478", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_4a18713b1734d35d4aa397cdf1046b29 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c058999c71ed6a5df0a534399ea9122e = $(`<div id="html_c058999c71ed6a5df0a534399ea9122e" style="width: 100.0%; height: 100.0%;"><b>Karachi, Pakistan</b><br>Air Quality Pm2.5: 24.3</div>`)[0];
+                popup_4a18713b1734d35d4aa397cdf1046b29.setContent(html_c058999c71ed6a5df0a534399ea9122e);
+            
+        
+
+        circle_marker_f96f6940be7ee54d25cac8346394529c.bindPopup(popup_4a18713b1734d35d4aa397cdf1046b29)
+        ;
+
+        
+    
+    
+            var circle_marker_ffbd1bb88a3edc6f361ac3ea5327c179 = L.circleMarker(
+                [37.57, 126.98],
+                {"bubblingMouseEvents": true, "color": "#7a6484", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7a6484", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_6df94a9ca725c821f3808bd41e2ba428 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_35c5b5f9a7780ca587ea9e078ffead61 = $(`<div id="html_35c5b5f9a7780ca587ea9e078ffead61" style="width: 100.0%; height: 100.0%;"><b>Seoul, South Korea</b><br>Air Quality Pm2.5: 22.1</div>`)[0];
+                popup_6df94a9ca725c821f3808bd41e2ba428.setContent(html_35c5b5f9a7780ca587ea9e078ffead61);
+            
+        
+
+        circle_marker_ffbd1bb88a3edc6f361ac3ea5327c179.bindPopup(popup_6df94a9ca725c821f3808bd41e2ba428)
+        ;
+
+        
+    
+    
+            var circle_marker_47746f0fa11bc9fbcc5a88a2f0d391d4 = L.circleMarker(
+                [14.6, 120.98],
+                {"bubblingMouseEvents": true, "color": "#6e6490", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6e6490", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_7441f41cff76902666666053b67c9a50 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_79ce27eee1e71380e68096f9a1a44f15 = $(`<div id="html_79ce27eee1e71380e68096f9a1a44f15" style="width: 100.0%; height: 100.0%;"><b>Manila, Philippines</b><br>Air Quality Pm2.5: 20.0</div>`)[0];
+                popup_7441f41cff76902666666053b67c9a50.setContent(html_79ce27eee1e71380e68096f9a1a44f15);
+            
+        
+
+        circle_marker_47746f0fa11bc9fbcc5a88a2f0d391d4.bindPopup(popup_7441f41cff76902666666053b67c9a50)
+        ;
+
+        
+    
+    
+            var circle_marker_af1d4f42314a5a0ad029f0fc20558fd5 = L.circleMarker(
+                [21.03, 105.85],
+                {"bubblingMouseEvents": true, "color": "#1464ea", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1464ea", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_c8aa9a0b806aa987cca097fc6f2fc0b6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_45bd2cbcb1a6923fe9a90c3611733461 = $(`<div id="html_45bd2cbcb1a6923fe9a90c3611733461" style="width: 100.0%; height: 100.0%;"><b>Hanoi, Vietnam</b><br>Air Quality Pm2.5: 3.7</div>`)[0];
+                popup_c8aa9a0b806aa987cca097fc6f2fc0b6.setContent(html_45bd2cbcb1a6923fe9a90c3611733461);
+            
+        
+
+        circle_marker_af1d4f42314a5a0ad029f0fc20558fd5.bindPopup(popup_c8aa9a0b806aa987cca097fc6f2fc0b6)
+        ;
+
+        
+    
+    
+            var circle_marker_20d293a094711015fb837a41d62036e1 = L.circleMarker(
+                [13.76, 100.5],
+                {"bubblingMouseEvents": true, "color": "#2764d7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2764d7", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_801043755619871f838585dc162a990e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9113637d59184ab68bcbd0df4a3e6b61 = $(`<div id="html_9113637d59184ab68bcbd0df4a3e6b61" style="width: 100.0%; height: 100.0%;"><b>Bangkok, Thailand</b><br>Air Quality Pm2.5: 7.1</div>`)[0];
+                popup_801043755619871f838585dc162a990e.setContent(html_9113637d59184ab68bcbd0df4a3e6b61);
+            
+        
+
+        circle_marker_20d293a094711015fb837a41d62036e1.bindPopup(popup_801043755619871f838585dc162a990e)
+        ;
+
+        
+    
+    
+            var circle_marker_a3f96ca7545891b644d5d5b45a61b832 = L.circleMarker(
+                [-6.21, 106.85],
+                {"bubblingMouseEvents": true, "color": "#3564c9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3564c9", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_84c12ecdf427d35272b2b252686728e7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_af7ba2bbb9662f47a6ac92583c6fabe2 = $(`<div id="html_af7ba2bbb9662f47a6ac92583c6fabe2" style="width: 100.0%; height: 100.0%;"><b>Jakarta, Indonesia</b><br>Air Quality Pm2.5: 9.6</div>`)[0];
+                popup_84c12ecdf427d35272b2b252686728e7.setContent(html_af7ba2bbb9662f47a6ac92583c6fabe2);
+            
+        
+
+        circle_marker_a3f96ca7545891b644d5d5b45a61b832.bindPopup(popup_84c12ecdf427d35272b2b252686728e7)
+        ;
+
+        
+    
+    
+            var circle_marker_82f5160fd6279f84aa74016bbd8aa18e = L.circleMarker(
+                [25.2, 55.27],
+                {"bubblingMouseEvents": true, "color": "#5464aa", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5464aa", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_dc615294aac40aa1d99a4989fee1fd18 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6b6898d4b48214344017d8848e134ea8 = $(`<div id="html_6b6898d4b48214344017d8848e134ea8" style="width: 100.0%; height: 100.0%;"><b>Dubai, United Arab Emirates</b><br>Air Quality Pm2.5: 15.3</div>`)[0];
+                popup_dc615294aac40aa1d99a4989fee1fd18.setContent(html_6b6898d4b48214344017d8848e134ea8);
+            
+        
+
+        circle_marker_82f5160fd6279f84aa74016bbd8aa18e.bindPopup(popup_dc615294aac40aa1d99a4989fee1fd18)
+        ;
+
+        
+    
+    
+            var circle_marker_70ec117a14ad40f9f25cfbfc1a34ba9e = L.circleMarker(
+                [24.71, 46.68],
+                {"bubblingMouseEvents": true, "color": "#0064ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0064ff", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_b1996086da509e2fcb8fe67190139d67 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bde813a1e8dce1542679b1bd01b98f1a = $(`<div id="html_bde813a1e8dce1542679b1bd01b98f1a" style="width: 100.0%; height: 100.0%;"><b>Riyadh, Saudi Arabia</b><br>Air Quality Pm2.5: 0.0</div>`)[0];
+                popup_b1996086da509e2fcb8fe67190139d67.setContent(html_bde813a1e8dce1542679b1bd01b98f1a);
+            
+        
+
+        circle_marker_70ec117a14ad40f9f25cfbfc1a34ba9e.bindPopup(popup_b1996086da509e2fcb8fe67190139d67)
+        ;
+
+        
+    
+    
+            var circle_marker_9df79cc2705ac4c616bb584ff2c01ace = L.circleMarker(
+                [41.01, 28.98],
+                {"bubblingMouseEvents": true, "color": "#9b6463", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9b6463", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_89239f5947647e52281204efb15052c1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eabc939f6a4fb8f5c1aac705defbdb29 = $(`<div id="html_eabc939f6a4fb8f5c1aac705defbdb29" style="width: 100.0%; height: 100.0%;"><b>Istanbul, Turkey</b><br>Air Quality Pm2.5: 28.2</div>`)[0];
+                popup_89239f5947647e52281204efb15052c1.setContent(html_eabc939f6a4fb8f5c1aac705defbdb29);
+            
+        
+
+        circle_marker_9df79cc2705ac4c616bb584ff2c01ace.bindPopup(popup_89239f5947647e52281204efb15052c1)
+        ;
+
+        
+    
+    
+            var circle_marker_e2957c655370b6f1de4f7d31982cf2a3 = L.circleMarker(
+                [52.23, 21.01],
+                {"bubblingMouseEvents": true, "color": "#60649e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#60649e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_d9f78fbd142e11134541a0698faa004e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f51a169aa26eda719f1f241009506767 = $(`<div id="html_f51a169aa26eda719f1f241009506767" style="width: 100.0%; height: 100.0%;"><b>Warsaw, Poland</b><br>Air Quality Pm2.5: 17.5</div>`)[0];
+                popup_d9f78fbd142e11134541a0698faa004e.setContent(html_f51a169aa26eda719f1f241009506767);
+            
+        
+
+        circle_marker_e2957c655370b6f1de4f7d31982cf2a3.bindPopup(popup_d9f78fbd142e11134541a0698faa004e)
+        ;
+
+        
+    
+    
+            var circle_marker_87bb87810da633ee5003aeadfeb85b9b = L.circleMarker(
+                [38.72, -9.14],
+                {"bubblingMouseEvents": true, "color": "#0064ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0064ff", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_0c4d957119927b8ff1d2f460a9b8f195 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8bd1bd3166223581a200845f99696490 = $(`<div id="html_8bd1bd3166223581a200845f99696490" style="width: 100.0%; height: 100.0%;"><b>Lisbon, Portugal</b><br>Air Quality Pm2.5: 0.0</div>`)[0];
+                popup_0c4d957119927b8ff1d2f460a9b8f195.setContent(html_8bd1bd3166223581a200845f99696490);
+            
+        
+
+        circle_marker_87bb87810da633ee5003aeadfeb85b9b.bindPopup(popup_0c4d957119927b8ff1d2f460a9b8f195)
+        ;
+
+        
+    
+    
+            var circle_marker_ed61cb84b092c674f3f5647a7c38225f = L.circleMarker(
+                [9.03, 38.74],
+                {"bubblingMouseEvents": true, "color": "#5d64a1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5d64a1", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f1c357ac87a5425106de47ceb671a71a);
+        
+    
+        var popup_645d661057e96224d013e0b02acb77ab = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_186a2705899c97cb7daba1eba8e20d31 = $(`<div id="html_186a2705899c97cb7daba1eba8e20d31" style="width: 100.0%; height: 100.0%;"><b>Addis Ababa, Ethiopia</b><br>Air Quality Pm2.5: 16.9</div>`)[0];
+                popup_645d661057e96224d013e0b02acb77ab.setContent(html_186a2705899c97cb7daba1eba8e20d31);
+            
+        
+
+        circle_marker_ed61cb84b092c674f3f5647a7c38225f.bindPopup(popup_645d661057e96224d013e0b02acb77ab)
+        ;
+
+        
+    
+</script>
+</html>

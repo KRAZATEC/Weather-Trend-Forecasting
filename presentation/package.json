@@ -1,0 +1,6 @@
+{
+  "name": "weather-presentation-builder",
+  "version": "1.0.0",
+  "description": "Generates Weather_Trend_Forecasting.pptx from build_presentation.js",
+  "dependencies": { "pptxgenjs": "^3.12.0" }
+}

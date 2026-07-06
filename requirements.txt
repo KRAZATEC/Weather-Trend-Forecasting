@@ -1,0 +1,39 @@
+# Core data science stack
+pandas==3.0.2
+numpy==2.4.4
+scipy==1.17.1
+
+# Visualization
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.8.0
+
+# Machine learning
+scikit-learn==1.8.0
+xgboost==3.3.0
+lightgbm==4.6.0
+# catboost>=1.2          # optional: install if you want CatBoost models too
+
+# Time-series forecasting
+statsmodels==0.14.6
+# prophet>=1.1            # optional: pip install prophet (needs a C++ build toolchain)
+
+# Explainability
+shap==0.52.0
+
+# Geospatial
+folium==0.20.0
+geopandas==1.1.4
+
+# Dashboard
+streamlit==1.58.0
+
+# Persistence / I/O
+joblib==1.5.3
+openpyxl==3.1.5
+
+# Notebooks
+jupyter
+nbformat==5.10.4
+nbclient==0.11.0
+ipykernel==7.3.0

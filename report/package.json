@@ -1,0 +1,6 @@
+{
+  "name": "weather-report-builder",
+  "version": "1.0.0",
+  "description": "Generates Weather_Report.docx from build_report.js",
+  "dependencies": { "docx": "^9.0.0" }
+}

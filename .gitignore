@@ -1,0 +1,35 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Data (large / regenerable — keep sample & processed outputs out of git by default)
+data/raw/*.csv
+!data/raw/.gitkeep
+data/external/*
+
+# Models (large binaries — regenerate via `python -m src.train`)
+models/*.pkl
+!models/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/
+
+# Jupyter
+*.nbconvert.ipynb
